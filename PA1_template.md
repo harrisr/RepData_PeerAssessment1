@@ -150,32 +150,18 @@ df_activity$date  <-as.Date(df_activity$date,"%Y-%m-%e")
 df_activity_date_steps <- aggregate(steps ~ date, df_activity, FUN = sum)
 
 
-# histogram example #1
-#?plot
-plot(x = df_activity_date_steps$date
-     , y = df_activity_date_steps$steps
-     , type = "s"
-     , xlab = "Date"
-     , ylab = "Steps"
-     , main = "Total Number of Steps Taken Each Day"
+# yup - i screwed this up.  i had to replace the barplot with a histogram.
+# setting the # of breaks a little higher to show a little more granularity.
+#?hist
+
+hist(df_activity_date_steps$steps
+     , xlab = "# of Steps"
+     , main = "Histogram of Number of Daily Steps"
+     , breaks = 20
 )
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
-
-```r
-# histogram example #2
-#?barplot
-barplot(height = df_activity_date_steps$steps
-        #, type = "s"
-        , xlab = "Date"
-        , ylab = "Steps"
-        , names.arg = df_activity_date_steps$date
-        , main = "Total Number of Steps Taken Each Day"
-        )
-```
-
-![](PA1_template_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
 
 ```r
 avg_steps <- mean(df_activity_date_steps$steps)
@@ -418,31 +404,18 @@ df_activity_filled_date_steps <- aggregate(steps ~ date, df_activity_filled, FUN
 
 
 
-# histogram example #1
-#?plot
-plot(x = df_activity_filled_date_steps$date
-     , y = df_activity_filled_date_steps$steps
-     , type = "s"
-     , xlab = "Date"
-     , ylab = "Steps"
-     , main = "Total Number of Steps Taken Each Day"
+# yup - i screwed this up.  i had to replace the barplot with a histogram.
+# setting the # of breaks a little higher to show a little more granularity.
+#?hist
+
+hist(df_activity_filled_date_steps$steps
+     , xlab = "# of Steps"
+     , main = "Histogram of Number of Daily Steps"
+     , breaks = 20
 )
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
-
-```r
-# histogram example #2
-#?barplot
-barplot(height = df_activity_filled_date_steps$steps
-        , xlab = "Date"
-        , ylab = "Steps"
-        , names.arg = df_activity_filled_date_steps$date
-        , main = "Total Number of Steps Taken Each Day"
-)
-```
-
-![](PA1_template_files/figure-html/unnamed-chunk-5-2.png)<!-- -->
 
 ```r
 head(df_activity_filled_date_steps, 10)
